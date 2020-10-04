@@ -5,4 +5,19 @@
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+}
+
+.textField {
+
+    line-height: 50px;
+}
+
+
+.enterName{
+
+
 }

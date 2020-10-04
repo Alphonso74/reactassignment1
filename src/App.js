@@ -2,36 +2,27 @@ import React, {Component} from 'react';
 import './App.css';
 import UserOutput from './Components/UserOutput';
 import UserInput from './Components/UserInput';
-
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <UserInput/>
-//       <UserOutput>Holy Cow Watch it GO! - Two Way Binding! </UserOutput>
-//
-//     </div>
-//   );
-// }
-//
-//
-//
-// export default App;
-
+import TitleToolBar from './Components/TitleToolBar'
 
 class App extends Component {
   state = {
-    persons: [
-      { username: 'Alphonso74'},
-    ]
 
-  }
+       username: 'Alphonso74'
+
+
+  };
+
+  nameChangedHandler = (event) => {
+    this.setState( {
+      username: event.target.value
+
+    } )
+  };
 
 
   render () {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: ' light blue',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -40,28 +31,16 @@ class App extends Component {
 
     return (
         <div className="App">
-          {/*<h1>Hi, I'm a React App</h1>*/}
-          {/*<p>This is really working!</p>*/}
-          {/*<button*/}
-          {/*    style={style}*/}
-          {/*    onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>*/}
-          {/*<Person*/}
-          {/*    name={this.state.persons[0].name}*/}
-          {/*    age={this.state.persons[0].age} />*/}
-          {/*<Person*/}
-          {/*    name={this.state.persons[1].name}*/}
-          {/*    age={this.state.persons[1].age}*/}
-          {/*    click={this.switchNameHandler.bind(this, 'Max!')}*/}
-          {/*    changed={this.nameChangedHandler} >My Hobbies: Racing</Person>*/}
-          {/*<Person*/}
-          {/*    name={this.state.persons[2].name}*/}
-          {/*    age={this.state.persons[2].age} />*/}
 
-          <UserInput/>
-          <UserOutput>Holy Cow Watch it GO! - Two Way Binding! </UserOutput>
+          <TitleToolBar/>
+
+          <UserOutput username = {this.state.username}> Holy Cow Watch it GO! - Two Way Binding! </UserOutput>
+
+          <UserInput change = {this.nameChangedHandler} currentName = {this.state.username}/>
+
+          <button style={style} onClick={() => window.location.reload(false)}>Refresh Page</button>
         </div>
     );
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 

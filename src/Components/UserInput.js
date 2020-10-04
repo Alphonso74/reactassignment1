@@ -1,10 +1,16 @@
 import './UserInput.css';
 import React from 'react';
+import UserOutput from './UserOutput';
 
 const userInput = ( props ) => {
     return (
-        <div className="UserInput">
-            <input type="text" onChange={props.changed} value={props.name} />
+        <div className="UserInput" align="inline">
+            <div className="enterName">
+            <p>Enter a new Username</p>
+            </div>
+            <div className="textField">
+            <input type="text" onChange={props.change} value={props.currentName} />
+            </div>
         </div>
     )
 };
